@@ -1,45 +1,179 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
+# =============================================================================
+# .gitignore — Futsal KITA Project (Mono-repo: Node.js Backend + Flutter Mobile)
+# =============================================================================
 
-# IntelliJ related
+
+# =============================================================================
+# NODE.JS / EXPRESS BACKEND (backend/)
+# =============================================================================
+
+# Dependency directories — JANGAN di-commit, install ulang dengan npm install
+node_modules/
+backend/node_modules/
+
+# Environment variables — RAHASIA, JANGAN pernah di-commit ke repo
+.env
+backend/.env
+*.env.local
+*.env.*.local
+
+# npm log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Build output Node.js (jika ada)
+backend/dist/
+backend/build/
+
+
+# =============================================================================
+# FLUTTER / DART MOBILE APP (futsal_kita_mobile/)
+# =============================================================================
+
+# Folder build Flutter — di-generate saat flutter build/run
+/futsal_kita_mobile/build/
+futsal_kita_mobile/build/
+
+# Dart tool cache
+futsal_kita_mobile/.dart_tool/
+.dart_tool/
+
+# Flutter plugin dependencies (auto-generated)
+futsal_kita_mobile/.flutter-plugins
+futsal_kita_mobile/.flutter-plugins-dependencies
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Pub cache dan lock (lock boleh di-commit, cache tidak)
+.pub-cache/
+.pub/
+futsal_kita_mobile/.pub-cache/
+
+# Coverage
+futsal_kita_mobile/coverage/
+coverage/
+
+# Symbolication & Obfuscation files
+app.*.symbols
+app.*.map.json
+
+# Android build artifacts
+futsal_kita_mobile/android/app/debug/
+futsal_kita_mobile/android/app/profile/
+futsal_kita_mobile/android/app/release/
+futsal_kita_mobile/android/.gradle/
+futsal_kita_mobile/android/captures/
+futsal_kita_mobile/android/local.properties
+
+# iOS build artifacts
+futsal_kita_mobile/ios/Pods/
+futsal_kita_mobile/ios/.symlinks/
+futsal_kita_mobile/ios/Flutter/App.framework
+futsal_kita_mobile/ios/Flutter/Flutter.framework
+futsal_kita_mobile/ios/Flutter/Flutter.podspec
+futsal_kita_mobile/ios/Flutter/Generated.xcconfig
+futsal_kita_mobile/ios/Flutter/ephemeral/
+futsal_kita_mobile/ios/Flutter/.last_build_id
+
+# macOS
+futsal_kita_mobile/macos/Flutter/GeneratedPluginRegistrant.swift
+futsal_kita_mobile/macos/Flutter/ephemeral/
+
+# Linux
+futsal_kita_mobile/linux/flutter/ephemeral/
+
+# Windows
+futsal_kita_mobile/windows/flutter/ephemeral/
+
+# Web
+futsal_kita_mobile/web/flutter_service_worker.js
+
+# Dart generated files
+futsal_kita_mobile/**/*.g.dart
+futsal_kita_mobile/**/*.freezed.dart
+futsal_kita_mobile/**/*.mocks.dart
+
+# API docs
+futsal_kita_mobile/**/doc/api/
+
+
+# =============================================================================
+# IDE & EDITOR
+# =============================================================================
+
+# VS Code — settings lokal tidak perlu di-commit
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+# Ekstensi recommendations boleh di-commit (berguna untuk tim):
+# !.vscode/extensions.json
+
+# IntelliJ / Android Studio
+.idea/
 *.iml
 *.ipr
 *.iws
-.idea/
+*.eml
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Vim / Emacs swap files
+*.swp
+*.swo
+*~
 
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+
+# =============================================================================
+# SISTEM OPERASI
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+
+# =============================================================================
+# LAIN-LAIN
+# =============================================================================
+
+# Log files
+*.log
+logs/
+
+# Compiled class files
+*.class
+
+# Python (jika ada script utilitas)
+*.pyc
+*.pyo
+__pycache__/
+
+# Dart analysis cache
 .dart_tool/
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
-/build/
-/coverage/
 
-# Symbolication related
-app.*.symbols
+# SQLite database lokal (jika ada)
+*.sqlite
+*.sqlite3
+*.db
 
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# File backup editor
+*.bak
+*.orig

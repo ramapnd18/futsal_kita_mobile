@@ -1,0 +1,147 @@
+# =============================================================================
+# .gitignore — futsal_kita_mobile (Flutter/Dart)
+# Catatan: Root-level .gitignore di Futsal_KITA_Project/ adalah yang utama.
+#          File ini adalah backup jika repo hanya ada di subfolder ini saja.
+# =============================================================================
+
+
+# =============================================================================
+# FLUTTER / DART
+# =============================================================================
+
+# Folder hasil build — di-generate ulang saat `flutter build` atau `flutter run`
+/build/
+
+# Dart tool cache (pub, analyzer, dll.)
+.dart_tool/
+
+# Flutter plugin list — di-generate otomatis
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Pub cache (bukan pubspec.lock — lock BOLEH di-commit)
+.pub-cache/
+.pub/
+
+# Coverage report
+/coverage/
+
+# Symbolication & Obfuscation
+app.*.symbols
+app.*.map.json
+
+# Dart generated code (jika pakai build_runner)
+**/*.g.dart
+**/*.freezed.dart
+**/*.mocks.dart
+
+# API Docs
+**/doc/api/
+
+
+# =============================================================================
+# ANDROID
+# =============================================================================
+
+# Gradle build cache & wrapper lock
+/android/.gradle/
+/android/captures/
+/android/gradlew
+/android/gradlew.bat
+
+# Konfigurasi lokal (path SDK, bukan untuk di-share)
+/android/local.properties
+
+# Android build output
+/android/app/debug/
+/android/app/profile/
+/android/app/release/
+
+# Keystore (JANGAN commit file signing ke repo!)
+*.jks
+*.keystore
+
+
+# =============================================================================
+# iOS
+# =============================================================================
+
+# CocoaPods (di-install ulang dengan `pod install`)
+/ios/Pods/
+/ios/.symlinks/
+
+# Flutter build artifacts untuk iOS
+/ios/Flutter/App.framework
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/ephemeral/
+/ios/Flutter/.last_build_id
+
+# Xcode user data
+/ios/*.xcworkspace/xcuserdata/
+/ios/*.xcodeproj/xcuserdata/
+
+
+# =============================================================================
+# PLATFORM DESKTOP
+# =============================================================================
+
+/linux/flutter/ephemeral/
+/macos/Flutter/ephemeral/
+/macos/Flutter/GeneratedPluginRegistrant.swift
+/windows/flutter/ephemeral/
+
+
+# =============================================================================
+# WEB
+# =============================================================================
+
+/web/flutter_service_worker.js
+
+
+# =============================================================================
+# IDE & EDITOR
+# =============================================================================
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code (settings lokal tidak perlu di-commit)
+.vscode/settings.json
+.vscode/launch.json
+
+
+# =============================================================================
+# SISTEM OPERASI
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+
+# =============================================================================
+# LAIN-LAIN
+# =============================================================================
+
+# Log files
+*.log
+
+# Vim / Emacs swap
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.orig

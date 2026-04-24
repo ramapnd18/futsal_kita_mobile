@@ -1,8 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'providers/auth_provider.dart';
+import 'providers/lapangan_provider.dart';
+import 'providers/transaksi_provider.dart';
+import 'screens/login_screen.dart';
+import 'screens/dashboard_screen.dart';
+
+// pubspec.yaml — pastikan sudah ada:
+// provider: ^6.x.x
+// http: ^1.x.x
+// shared_preferences: ^2.x.x
+// intl: ^0.19.0
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => LapanganProvider()),
+        ChangeNotifierProvider(create: (_) => TransaksiProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Futsal KITA',
+        debugShowCheckedModeBanner: false, // Menghilangkan pita "Debug" di pojok kanan atas
+        initialRoute: '/login',
+        routes: {
+          '/login': (_) => const LoginScreen(),
+          '/dashboard': (_) => const DashboardScreen(),
+        },
+      ),
+    ),
+  );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
