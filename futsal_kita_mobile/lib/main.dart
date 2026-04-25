@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:provider/provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/lapangan_provider.dart';
@@ -12,7 +13,9 @@ import 'screens/dashboard_screen.dart';
 // shared_preferences: ^2.x.x
 // intl: ^0.19.0
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id_ID', null);
   runApp(
     MultiProvider(
       providers: [

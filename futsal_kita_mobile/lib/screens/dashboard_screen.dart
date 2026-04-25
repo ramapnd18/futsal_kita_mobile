@@ -1,5 +1,3 @@
-// lib/screens/dashboard_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +9,7 @@ import '../models/transaksi.dart';
 import '../widgets/lapangan_card.dart';
 import '../widgets/transaksi_card.dart';
 import 'login_screen.dart';
+import 'admin_lapangan_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -61,6 +60,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   PreferredSizeWidget _buildAppBar() {
     final titles = ['Beranda', 'Riwayat Booking'];
+    final user = context.read<AuthProvider>().user;
+    final isAdmin = user?.role == 'admin';
+
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
@@ -90,6 +92,23 @@ class _DashboardScreenState extends State<DashboardScreen> {
         ],
       ),
       actions: [
+        if (isAdmin)
+          IconButton(
+            tooltip: 'Panel Admin',
+            icon: Container(
+              padding: const EdgeInsets.all(6),
+              decoration: BoxDecoration(
+                color: const Color(0xFFECFDF5),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Icon(Icons.admin_panel_settings_rounded,
+                  color: Color(0xFF10B981), size: 18),
+            ),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const AdminLapanganScreen()),
+            ),
+          ),
         IconButton(
           tooltip: 'Logout',
           icon: const Icon(Icons.logout_rounded, color: Color(0xFFEF4444)),

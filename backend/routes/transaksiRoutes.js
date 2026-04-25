@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { createTransaksi, getTransaksi, updateStatus, cekJadwal} = require('../controllers/transaksiController');
+const { createTransaksi, batalTransaksi, getTransaksi, updateStatus, cekJadwal} = require('../controllers/transaksiController');
 
 // Import middleware JWT
 const { verifyToken, isAdmin } = require('../middlewares/authMiddleware');
@@ -9,6 +9,9 @@ const { verifyToken, isAdmin } = require('../middlewares/authMiddleware');
 // Pelanggan bisa booking dan melihat riwayatnya sendiri
 router.post('/', verifyToken, createTransaksi);
 router.get('/', verifyToken, getTransaksi);
+
+// Pelanggan bisa membatalkan transaksi miliknya sendiri (cek ownership di controller)
+router.put('/:id/batal', verifyToken, batalTransaksi);
 
 // Endpoint untuk cek jadwal spesifik
 router.get('/jadwal/:id_lapangan/:tanggal', verifyToken, cekJadwal);
